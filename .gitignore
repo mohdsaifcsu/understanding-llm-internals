@@ -1,0 +1,15 @@
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore environment folders
+.env/
+venv/
+*.egg-info/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
