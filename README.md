@@ -1,7 +1,7 @@
 # Understanding LLM Internals - Hands-On Exploration of Transformer Components
 
-This repository provides a practical exploration of the core building blocks used inside modern Large Language Models (LLMs), including **Self-Attention, Sparse Attention, Mixture-of-Experts (MoE)**, and a simplified **RLHF (Reinforcement Learning from Human Feedback)** pipeline.
-All implementations are intentionally minimal, CPU-friendly, and written in **PyTorch** for clarity.
+This repository provides a practical exploration of the core building blocks used inside modern Large Language Models (LLMs), including **Self-Attention, Sparse Attention, Mixture-of-Experts (MoE)**, and a simplified **RLHF (Reinforcement Learning from Human Feedback)** simulation, and a toy text-generation example.
+All implementations are intentionally minimal, CPU-friendly, and written in **PyTorch** to help build intuition for how LLMs actually work.
 
 ---
 
@@ -40,6 +40,38 @@ understanding-llm-internals/
 ├── .gitignore
 └── README.md
 ```
+
+---
+
+## Recommended Learning Order (Start to Finish)
+To make this repository easier to follow, here is the suggested step-by-step learning path:
+
+### 1. Attention (Start Here)
+Understand how transformers “focus” on different parts of an input.
+```bash
+attention/
+├── self_attention_scratch.ipynb        # Core attention mechanics (Q, K, V)
+└── sparse_attention_demo.ipynb         # Efficient attention patterns
+```
+### 2. Mixture-of-Experts (MoE)
+Learn how LLMs scale using sparse expert routing.
+```bash
+moe/
+└── simple_moe_layer.ipynb              # Soft routing across experts
+```
+### 3. Reinforcement Learning from Human Feedback (RLHF)
+Explore reward modeling and policy improvement.
+```bash
+rl/
+└── rlhf_preference_simulation.ipynb    # Mini RLHF training loop
+```
+### 4. Examples
+A minimal next-token generator.
+```bash
+examples/
+└── simple_text_generation.ipynb        # Tiny text generation demo
+```
+
 
 ---
 
@@ -103,12 +135,10 @@ Each notebook is standalone and CPU-friendly.
 - Perform PPO-style update
 - Plot reward and policy learning curves
 
-
 ### Mini Text Generation
 
 - Builds a tiny vocabulary + tokenizer
 - Implements a minimal Transformer decoder block
-- Trains on a toy corpus with next-token prediction
 - Generates text using:
   - Autoregressive decoding
   - Temperature sampling
