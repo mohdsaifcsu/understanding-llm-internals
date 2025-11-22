@@ -10,10 +10,12 @@ All implementations are intentionally minimal, CPU-friendly, and written in **Py
 - Scaled Dot-Product Self-Attention (from scratch)
 - Sparse Attention (Local Window + Block Sparse)
 - Mixture-of-Experts (MoE) with routing network
-- RLHF Simulation:
-  - Preference data generation
-  - Reward model training
-  - Policy improvement loop
+- RLHF Simulation (preference data > reward model > policy update)
+- Mini Decoder-Only Text Generation
+  - Tiny vocabulary + tokenizer
+  - Minimal Transformer decoder block
+  - Autoregressive inference loop
+  - Temperature sampling
 
 ---
 
@@ -30,6 +32,9 @@ understanding-llm-internals/
 │
 ├── rl/
 │   └── rlhf_preference_simulation.ipynb
+│
+├── examples/
+│   └── simple_text_generation.ipynb
 │
 ├── requirements.txt
 ├── .gitignore
@@ -61,6 +66,7 @@ Open any notebook:
 - sparse_attention_demo.ipynb
 - simple_moe_layer.ipynb
 - rlhf_preference_simulation.ipynb
+- simple_text_generation.ipynb
 
 Each notebook is standalone and CPU-friendly.
 
@@ -97,6 +103,18 @@ Each notebook is standalone and CPU-friendly.
 - Perform PPO-style update
 - Plot reward and policy learning curves
 
+
+### Mini Text Generation
+
+- Builds a tiny vocabulary + tokenizer
+- Implements a minimal Transformer decoder block
+- Trains on a toy corpus with next-token prediction
+- Generates text using:
+  - Autoregressive decoding
+  - Temperature sampling
+- Demonstrates the core inference loop used by real LLMs
+
+
 ---
 
 ## Technologies Used
@@ -118,6 +136,7 @@ This project was developed as preparation for PhD research in:
 - Sparse and efficient attention
 - Mixture-of-experts scaling
 - Reward-based alignment (RLHF)
+- Autoregressive sequence generation
 
 It focuses on building intuition for transformer internals rather than training large models.
 
@@ -144,5 +163,6 @@ This project is for **academic and educational use** only.
 - Longer-context sparse attention
 - HuggingFace integration
 - End-to-end SFT > RM > RLHF pipeline
+- Add positional encoding experiments
 
 ---
