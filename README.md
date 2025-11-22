@@ -1,7 +1,7 @@
 # Understanding LLM Internals - Hands-On Exploration of Transformer Components
 
-This repository provides a practical exploration of the core building blocks used inside modern Large Language Models (LLMs), including **Self-Attention, Sparse Attention, Mixture-of-Experts (MoE)**, and a simplified **RLHF (Reinforcement Learning from Human Feedback)** pipeline.
-All implementations are intentionally minimal, CPU-friendly, and written in **PyTorch** for clarity.
+This repository provides a practical exploration of the core building blocks used inside modern Large Language Models (LLMs), including **Self-Attention, Sparse Attention, Mixture-of-Experts (MoE)**, and a simplified **RLHF (Reinforcement Learning from Human Feedback)** simulation, and a toy text-generation example.
+All implementations are intentionally minimal, CPU-friendly, and written in **PyTorch** to help build intuition for how LLMs actually work.
 
 ---
 
@@ -10,10 +10,12 @@ All implementations are intentionally minimal, CPU-friendly, and written in **Py
 - Scaled Dot-Product Self-Attention (from scratch)
 - Sparse Attention (Local Window + Block Sparse)
 - Mixture-of-Experts (MoE) with routing network
-- RLHF Simulation:
-  - Preference data generation
-  - Reward model training
-  - Policy improvement loop
+- RLHF Simulation (preference data > reward model > policy update)
+- Mini Decoder-Only Text Generation
+  - Tiny vocabulary + tokenizer
+  - Minimal Transformer decoder block
+  - Autoregressive inference loop
+  - Temperature sampling
 
 ---
 
@@ -31,10 +33,45 @@ understanding-llm-internals/
 ├── rl/
 │   └── rlhf_preference_simulation.ipynb
 │
+├── examples/
+│   └── simple_text_generation.ipynb
+│
 ├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
+
+---
+
+## Recommended Learning Order (Start to Finish)
+To make this repository easier to follow, here is the suggested step-by-step learning path:
+
+### 1. Attention (Start Here)
+Understand how transformers “focus” on different parts of an input.
+```bash
+attention/
+├── self_attention_scratch.ipynb        # Core attention mechanics (Q, K, V)
+└── sparse_attention_demo.ipynb         # Efficient attention patterns
+```
+### 2. Mixture-of-Experts (MoE)
+Learn how LLMs scale using sparse expert routing.
+```bash
+moe/
+└── simple_moe_layer.ipynb              # Soft routing across experts
+```
+### 3. Reinforcement Learning from Human Feedback (RLHF)
+Explore reward modeling and policy improvement.
+```bash
+rl/
+└── rlhf_preference_simulation.ipynb    # Mini RLHF training loop
+```
+### 4. Examples
+A minimal next-token generator.
+```bash
+examples/
+└── simple_text_generation.ipynb        # Tiny text generation demo
+```
+
 
 ---
 
@@ -61,6 +98,7 @@ Open any notebook:
 - sparse_attention_demo.ipynb
 - simple_moe_layer.ipynb
 - rlhf_preference_simulation.ipynb
+- simple_text_generation.ipynb
 
 Each notebook is standalone and CPU-friendly.
 
@@ -97,6 +135,16 @@ Each notebook is standalone and CPU-friendly.
 - Perform PPO-style update
 - Plot reward and policy learning curves
 
+### Mini Text Generation
+
+- Builds a tiny vocabulary + tokenizer
+- Implements a minimal Transformer decoder block
+- Generates text using:
+  - Autoregressive decoding
+  - Temperature sampling
+- Demonstrates the core inference loop used by real LLMs
+
+
 ---
 
 ## Technologies Used
@@ -118,6 +166,7 @@ This project was developed as preparation for PhD research in:
 - Sparse and efficient attention
 - Mixture-of-experts scaling
 - Reward-based alignment (RLHF)
+- Autoregressive sequence generation
 
 It focuses on building intuition for transformer internals rather than training large models.
 
@@ -144,5 +193,6 @@ This project is for **academic and educational use** only.
 - Longer-context sparse attention
 - HuggingFace integration
 - End-to-end SFT > RM > RLHF pipeline
+- Add positional encoding experiments
 
 ---
