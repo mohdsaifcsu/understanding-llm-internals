@@ -170,6 +170,18 @@ This project was developed as preparation for PhD research in:
 
 It focuses on building intuition for transformer internals rather than training large models.
 
+
+---
+## Future Work
+
+- Multi-head attention
+- Top-k MoE routing
+- Longer-context sparse attention
+- HuggingFace integration
+- End-to-end SFT > RM > RLHF pipeline
+- Add positional encoding experiments
+
+
 ---
 
 ##  Author
@@ -186,13 +198,3 @@ This project is for **academic and educational use** only.
 
 ---
 
-## Future Work
-
-- Multi-head attention
-- Top-k MoE routing
-- Longer-context sparse attention
-- HuggingFace integration
-- End-to-end SFT > RM > RLHF pipeline
-- Add positional encoding experiments
-
----
