@@ -187,7 +187,6 @@ It focuses on building intuition for transformer internals rather than training 
 ##  Author
 
 **Mohd Saif**  
-Master’s Student - Colorado State University  
 GitHub: https://github.com/mohdsaifcsu
 
 ---
